@@ -18,11 +18,15 @@ public class CarGroupValidator {
 
 
     public void validateCarGroupRequestCreation(CarGroupCreationRequest carGroupCreationRequest) {
-        log.info("CarGroupValidator::Validation process of carGroupCreationRequest: {}", carGroupCreationRequest);
-        carGroupRepository.findCarGroupByName(carGroupCreationRequest.name())
+        String carGroupName = carGroupCreationRequest.name();
+        log.info("CarGroupValidator::Starting validation for CarGroupCreationRequest with name: {}", carGroupName);
+
+        carGroupRepository.findCarGroupByName(carGroupName)
                 .orElseThrow(() ->
                         new CustomServiceException(
                                 HttpStatus.CONFLICT,
                                 ErrorCode.CAR_GROUP_WITH_NAME_ALREADY_EXIST.getMessage()));
+
+        log.info("CarGroupValidator::Validation successful for CarGroupCreationRequest with name: {}", carGroupName);
     }
 }
