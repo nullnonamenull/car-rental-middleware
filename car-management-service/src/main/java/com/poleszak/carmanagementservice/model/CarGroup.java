@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 public class CarGroup {
 
-    private Integer id;
+    private Long id;
     private String name;
     private List<Car> cars;
     private CarGroupVisibilityStatus visibilityStatus;

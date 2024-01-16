@@ -7,6 +7,7 @@ import com.poleszak.carmanagementservice.service.tools.validator.CarGroupValidat
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 
@@ -20,6 +21,8 @@ public class CarGroupCommandService {
     private final CarGroupValidator carGroupValidator;
 
     public URI createCarGroup(CarGroupCreationRequest carGroupCreationRequest) {
+        log.info("CarGroupCommandService::Received request to create car group with name: {}", carGroupCreationRequest.name());
+
         carGroupValidator.validateCarGroupRequestCreation(carGroupCreationRequest);
 
         CarGroup carGroup = CarGroup.builder()
@@ -27,8 +30,21 @@ public class CarGroupCommandService {
                 .cars(carGroupCreationRequest.cars())
                 .build();
 
-        log.info("CarGroupCommandService::Saving new car group: {}", carGroup);
-        carGroupRepository.save(carGroup);
-        return null;
+        log.info("CarGroupCommandService::Creating new car group: {}", carGroup);
+        CarGroup savedCarGroup;
+
+        savedCarGroup = carGroupRepository.save(carGroup);
+
+
+        URI createdCarGroupUri = generateCarGroupUri(savedCarGroup.getId());
+        log.info("CarGroupCommandService::New car group saved with URI: {}", createdCarGroupUri);
+        return createdCarGroupUri;
+    }
+
+    private URI generateCarGroupUri(Long carGroupId) {
+        //TODO: define path in resources
+        return UriComponentsBuilder.fromPath("/car-groups/{id}")
+                .buildAndExpand(carGroupId)
+                .toUri();
     }
 }
