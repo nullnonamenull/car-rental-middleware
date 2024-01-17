@@ -1,6 +1,6 @@
 package com.poleszak.carmanagementservice.service.command;
 
-import com.poleszak.carmanagementservice.controller.command.CarGroupCreationRequest;
+import com.poleszak.carmanagementservice.controller.command.request.CarGroupCreationRequest;
 import com.poleszak.carmanagementservice.model.CarGroup;
 import com.poleszak.carmanagementservice.repository.CarGroupRepository;
 import com.poleszak.carmanagementservice.service.tools.validator.CarGroupValidator;

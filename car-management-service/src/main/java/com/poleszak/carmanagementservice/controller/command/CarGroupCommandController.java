@@ -1,5 +1,6 @@
 package com.poleszak.carmanagementservice.controller.command;
 
+import com.poleszak.carmanagementservice.controller.command.request.CarGroupCreationRequest;
 import com.poleszak.carmanagementservice.service.command.CarGroupCommandService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.poleszak.carmanagementservice.controller.command;
+package com.poleszak.carmanagementservice.controller.command.request;
 
 import com.poleszak.carmanagementservice.model.Car;
 

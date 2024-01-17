@@ -4,9 +4,9 @@ spring:
   application:
     name: car-management-service
   datasource:
-    password: postgresql
-    url: jdbc:postgresql://localhost:5432/car_management
-    username: postgresql
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/car_management_db
+    username: postgres
   jpa:
     hibernate:
       ddl-auto: update
