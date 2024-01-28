@@ -18,13 +18,12 @@ public class CarCommandController {
     private final CarCommandService carCommandService;
 
     @PostMapping("/{carGroupId}")
-    public ResponseEntity<URI> createCarGroup(@RequestBody CarCreationRequest carCreationRequest, @PathVariable("carGroupId") Long carGroupId) {
-        String carName = carCreationRequest.name();
-        log.info("Received request to create new car with name: {}. For car group with id: {}", carName, carGroupId);
+    public ResponseEntity<URI> addCarToCarGroup(@RequestBody CarCreationRequest carCreationRequest, @PathVariable("carGroupId") Long carGroupId) {
+        log.info("CarCommandController::Received request to add new car with name: {} to car group with id: {}", carCreationRequest.name(), carGroupId);
 
-        URI createdCarGroupUri = carCommandService.createCarForCarGroup(carCreationRequest, carGroupId);
-        log.info("Successfully created car with name: {}. Resource URI: {}", carName, createdCarGroupUri);
+        URI createdCarUri = carCommandService.addCarToCarGroup(carCreationRequest, carGroupId);
+        log.info("CarCommandController::Successfully added car with name: {}. Resource URI: {}", carCreationRequest.name(), createdCarUri);
 
-        return ResponseEntity.created(createdCarGroupUri).build();
+        return ResponseEntity.created(createdCarUri).build();
     }
 }
