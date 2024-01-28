@@ -7,6 +7,9 @@ import lombok.*;
 import java.util.HashSet;
 import java.util.Set;
 
+import static jakarta.persistence.EnumType.STRING;
+import static jakarta.persistence.GenerationType.SEQUENCE;
+
 @Data
 @Entity
 @Setter
@@ -16,12 +19,16 @@ import java.util.Set;
 public class CarGroup {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = SEQUENCE, generator = "car_group_seq_gen")
+    @SequenceGenerator(name = "car_group_seq_gen", sequenceName = "car_group_sequence", allocationSize = 1)
     private Long id;
+
     @Column(unique = true)
     private String name;
+
     @OneToMany(mappedBy = "carGroup", cascade = CascadeType.ALL)
     private Set<Car> cars = new HashSet<>();
-    @Enumerated(EnumType.STRING)
+
+    @Enumerated(STRING)
     private CarGroupVisibilityStatus visibilityStatus;
 }

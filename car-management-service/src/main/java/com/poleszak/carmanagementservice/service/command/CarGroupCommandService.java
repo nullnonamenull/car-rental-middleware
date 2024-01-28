@@ -3,7 +3,6 @@ package com.poleszak.carmanagementservice.service.command;
 import com.poleszak.carmanagementservice.controller.command.request.CarGroupCreationRequest;
 import com.poleszak.carmanagementservice.model.CarGroup;
 import com.poleszak.carmanagementservice.repository.CarGroupRepository;
-import com.poleszak.carmanagementservice.repository.CarRepository;
 import com.poleszak.carmanagementservice.service.tools.mapper.CarGroupMapper;
 import com.poleszak.carmanagementservice.service.tools.validator.CarGroupValidator;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +24,7 @@ public class CarGroupCommandService {
 
 
     public URI createCarGroup(CarGroupCreationRequest carGroupCreationRequest) {
-        log.info("Received request to create car group with name: {}", carGroupCreationRequest.name());
+        log.info("CarGroupCommandService::Starting creating car group process with name: {}", carGroupCreationRequest.name());
 
         carGroupValidator.validateCarGroupRequestCreation(carGroupCreationRequest);
 
@@ -33,7 +32,7 @@ public class CarGroupCommandService {
 
         CarGroup savedCarGroup = carGroupRepository.save(carGroup);
         URI createdCarGroupUri = generateCarGroupUri(savedCarGroup.getId());
-        log.info("New car group saved with URI: {}", createdCarGroupUri);
+        log.info("CarGroupCommandService::New car group saved with URI: {}", createdCarGroupUri);
 
         return createdCarGroupUri;
     }
