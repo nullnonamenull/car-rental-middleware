@@ -4,21 +4,24 @@ import com.poleszak.carmanagementservice.model.enumerated.CarGroupVisibilityStat
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class CarGroup {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(unique = true)
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "carGroup", fetch = FetchType.EAGER)
-    private List<Car> cars;
+    @OneToMany(mappedBy = "carGroup", cascade = CascadeType.ALL)
+    private Set<Car> cars = new HashSet<>();
     @Enumerated(EnumType.STRING)
     private CarGroupVisibilityStatus visibilityStatus;
 }
