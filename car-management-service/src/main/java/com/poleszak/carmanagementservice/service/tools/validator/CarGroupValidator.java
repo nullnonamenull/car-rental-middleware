@@ -20,7 +20,7 @@ public class CarGroupValidator {
     private final CarGroupRepository carGroupRepository;
 
 
-    public void validateCarGroupRequestCreation(CarGroupCreationRequest carGroupCreationRequest) {
+    public void validateCarGroupCreationRequest(CarGroupCreationRequest carGroupCreationRequest) {
         String carGroupName = carGroupCreationRequest.name();
         log.info("CarGroupValidator::Starting validation for CarGroupCreationRequest with name: {}", carGroupName);
 

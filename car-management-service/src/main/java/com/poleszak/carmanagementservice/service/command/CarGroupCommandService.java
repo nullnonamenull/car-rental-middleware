@@ -26,7 +26,7 @@ public class CarGroupCommandService {
     public URI createCarGroup(CarGroupCreationRequest carGroupCreationRequest) {
         log.info("CarGroupCommandService::Starting creating car group process with name: {}", carGroupCreationRequest.name());
 
-        carGroupValidator.validateCarGroupRequestCreation(carGroupCreationRequest);
+        carGroupValidator.validateCarGroupCreationRequest(carGroupCreationRequest);
 
         CarGroup carGroup = carGroupMapper.carGroupCreationRequestToCarGroup(carGroupCreationRequest);
 
