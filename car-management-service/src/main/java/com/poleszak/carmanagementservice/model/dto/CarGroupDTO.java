@@ -7,5 +7,5 @@ import java.util.List;
 public record CarGroupDTO(Long id,
                           String name,
                           List<CarDTO> carDTOs,
-                          CarGroupVisibilityStatus carGroupVisibilityStatus) {
+                          CarGroupVisibilityStatus visibilityStatus) {
 }
