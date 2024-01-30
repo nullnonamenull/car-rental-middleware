@@ -6,11 +6,14 @@ import com.poleszak.carmanagementservice.model.dto.CarGroupDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = CarMapper.class)
 public interface CarGroupMapper {
 
     @Mapping(target = "name", source = "name")
     @Mapping(target = "visibilityStatus", source = "visibilityStatus")
     CarGroup carGroupCreationRequestToCarGroup(CarGroupCreationRequest carGroupCreationRequest);
+    @Mapping(target = "name", source = "name")
+    @Mapping(target = "visibilityStatus", source = "visibilityStatus")
+    @Mapping(target = "carDTOs", source = "cars") // Assuming CarGroupDTO has a field named 'carDTOs'
     CarGroupDTO carGroupToCarGroupDTO(CarGroup carGroup);
 }

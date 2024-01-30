@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface CarGroupRepository extends JpaRepository<CarGroup, Long> {
 
     Optional<CarGroup> findCarGroupByName(String name);
+
 }

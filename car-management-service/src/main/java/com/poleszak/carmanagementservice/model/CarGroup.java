@@ -4,16 +4,17 @@ import com.poleszak.carmanagementservice.model.enumerated.CarGroupVisibilityStat
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
-@Data
-@Entity
+@Getter
 @Setter
 @Builder
+@Entity
+@Table(name = "car_group")
 @NoArgsConstructor
 @AllArgsConstructor
 public class CarGroup {
@@ -26,9 +27,12 @@ public class CarGroup {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "carGroup", cascade = CascadeType.ALL)
-    private Set<Car> cars = new HashSet<>();
+    @Builder.Default
+    @OneToMany(mappedBy = "carGroup", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Car> cars = new ArrayList<>();
+
 
     @Enumerated(STRING)
     private CarGroupVisibilityStatus visibilityStatus;
 }
+
