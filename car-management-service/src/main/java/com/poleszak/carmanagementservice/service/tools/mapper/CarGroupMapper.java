@@ -12,8 +12,9 @@ public interface CarGroupMapper {
     @Mapping(target = "name", source = "name")
     @Mapping(target = "visibilityStatus", source = "visibilityStatus")
     CarGroup carGroupCreationRequestToCarGroup(CarGroupCreationRequest carGroupCreationRequest);
+
     @Mapping(target = "name", source = "name")
     @Mapping(target = "visibilityStatus", source = "visibilityStatus")
-    @Mapping(target = "carDTOs", source = "cars") // Assuming CarGroupDTO has a field named 'carDTOs'
+    @Mapping(target = "carDTOs", source = "cars")
     CarGroupDTO carGroupToCarGroupDTO(CarGroup carGroup);
 }
