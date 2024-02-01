@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-import static com.poleszak.carmanagementservice.common.exception.ErrorCode.CAR_GROUP_NAME_ALREADY_EXISTS;
+import static com.poleszak.carmanagementservice.common.exception.ErrorCode.CAR_NAME_ALREADY_EXIST;
 
 @Slf4j
 @Component
@@ -26,7 +26,7 @@ public class CarValidator {
         Optional<Car> optionalCar = carRepository.findByNameAndCarGroupId(carName, carGroupId);
 
         if (optionalCar.isPresent()) {
-            throw new CustomServiceException(CAR_GROUP_NAME_ALREADY_EXISTS);
+            throw new CustomServiceException(CAR_NAME_ALREADY_EXIST);
         }
         log.info("CarGroupValidator::Validation successful for CarGroupCreationRequest with name: {}", carName);
     }

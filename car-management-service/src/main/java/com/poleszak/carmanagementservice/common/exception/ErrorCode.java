@@ -11,7 +11,8 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 public enum ErrorCode {
 
     CAR_GROUP_NAME_ALREADY_EXISTS(CONFLICT, "Car group with passed name already exist."),
-    CAR_GROUP_NOT_FOUND(NOT_FOUND, "Car group not found.");
+    CAR_GROUP_NOT_FOUND(NOT_FOUND, "Car group not found."),
+    CAR_NAME_ALREADY_EXIST(CONFLICT, "Car with passed name already exist.");
 
     private final String message;
     private final HttpStatus httpStatus;
