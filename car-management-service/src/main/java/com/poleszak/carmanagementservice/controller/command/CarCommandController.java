@@ -11,7 +11,7 @@ import java.net.URI;
 
 @Slf4j
 @RestController
-@RequestMapping("api/car")
+@RequestMapping("api/command/car")
 @RequiredArgsConstructor
 public class CarCommandController {
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("api/car-group/query")
+@RequestMapping("api/query/car-group")
 @RequiredArgsConstructor
 public class CarGroupQueryController {
 
