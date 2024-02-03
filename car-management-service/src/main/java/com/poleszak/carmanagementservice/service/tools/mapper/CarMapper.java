@@ -4,14 +4,12 @@ import com.poleszak.carmanagementservice.controller.command.request.CarCreationR
 import com.poleszak.carmanagementservice.model.Car;
 import com.poleszak.carmanagementservice.model.dto.CarDTO;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.NullValueCheckStrategy;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
 public interface CarMapper {
 
-    @Mapping(target = "name", source = "name")
     Car carCreationRequestToCar(CarCreationRequest carCreationRequest);
 
-    @Mapping(target = "name", source = "name")
     CarDTO carToCarDTO(Car car);
 }
