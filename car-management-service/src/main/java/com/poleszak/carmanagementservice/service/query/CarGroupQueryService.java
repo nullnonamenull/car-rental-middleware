@@ -1,5 +1,7 @@
 package com.poleszak.carmanagementservice.service.query;
 
+import com.poleszak.carmanagementservice.common.exception.CustomServiceException;
+import com.poleszak.carmanagementservice.common.exception.ErrorCode;
 import com.poleszak.carmanagementservice.model.CarGroup;
 import com.poleszak.carmanagementservice.model.dto.CarGroupDTO;
 import com.poleszak.carmanagementservice.repository.CarGroupRepository;
@@ -24,5 +26,12 @@ public class CarGroupQueryService {
         return carGroup.stream()
                 .map(carGroupMapper::carGroupToCarGroupDTO)
                 .toList();
+    }
+
+    public CarGroupDTO getCarGroupDTOById(Long carGroupId) {
+        CarGroup carGroup = carGroupRepository.findById(carGroupId)
+                .orElseThrow(() -> new CustomServiceException(ErrorCode.CAR_GROUP_NOT_FOUND));
+
+        return carGroupMapper.carGroupToCarGroupDTO(carGroup);
     }
 }
