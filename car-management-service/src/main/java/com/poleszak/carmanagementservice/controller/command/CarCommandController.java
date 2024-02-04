@@ -20,7 +20,6 @@ public class CarCommandController {
     @PostMapping("/{carGroupId}")
     public ResponseEntity<URI> addCarToCarGroup(@RequestBody CarCreationRequest carCreationRequest, @PathVariable("carGroupId") Long carGroupId) {
         log.info("CarCommandController::Received request to add new car with name: {} to car group with id: {}", carCreationRequest.name(), carGroupId);
-
         URI createdCarUri = carCommandService.addCarToCarGroup(carCreationRequest, carGroupId);
         log.info("CarCommandController::Successfully added car with name: {}. Resource URI: {}", carCreationRequest.name(), createdCarUri);
 

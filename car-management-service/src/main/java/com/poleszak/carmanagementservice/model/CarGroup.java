@@ -7,7 +7,9 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.EnumType.STRING;
+import static jakarta.persistence.FetchType.EAGER;
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Getter
@@ -28,11 +30,10 @@ public class CarGroup {
     private String name;
 
     @Builder.Default
-    @OneToMany(mappedBy = "carGroup", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "carGroup", cascade = ALL, fetch = EAGER)
     private List<Car> cars = new ArrayList<>();
 
 
     @Enumerated(STRING)
     private CarGroupVisibilityStatus visibilityStatus;
 }
-

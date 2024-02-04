@@ -24,4 +24,3 @@ public class Car {
     @JoinColumn(name = "car_group_id", referencedColumnName = "id", nullable = false)
     private CarGroup carGroup;
 }
-

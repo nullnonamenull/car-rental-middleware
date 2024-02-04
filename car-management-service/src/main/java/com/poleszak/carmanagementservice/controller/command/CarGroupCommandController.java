@@ -25,7 +25,6 @@ public class CarGroupCommandController {
     public ResponseEntity<URI> createCarGroup(@RequestBody CarGroupCreationRequest carGroupCreationRequest) {
         String carGroupName = carGroupCreationRequest.name();
         log.info("CarGroupCommandController::Received request to create new car group with name: {}", carGroupName);
-
         URI createdCarGroupUri = carGroupCommandService.createCarGroup(carGroupCreationRequest);
         log.info("CarGroupCommandController::Successfully created car group with name: {}. Resource URI: {}", carGroupName, createdCarGroupUri);
 
