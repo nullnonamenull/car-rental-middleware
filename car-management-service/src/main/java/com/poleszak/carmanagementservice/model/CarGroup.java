@@ -1,6 +1,7 @@
 package com.poleszak.carmanagementservice.model;
 
 import com.poleszak.carmanagementservice.model.enumerated.CarGroupVisibilityStatus;
+import com.poleszak.carmanagementservice.model.enumerated.FuelType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -33,6 +34,12 @@ public class CarGroup {
     @OneToMany(mappedBy = "carGroup", cascade = ALL, fetch = EAGER)
     private List<Car> cars = new ArrayList<>();
 
+    private Integer seatsNumber;
+
+    private Integer doorsNumber;
+
+    @Enumerated(STRING)
+    private FuelType fuelType;
 
     @Enumerated(STRING)
     private CarGroupVisibilityStatus visibilityStatus;
