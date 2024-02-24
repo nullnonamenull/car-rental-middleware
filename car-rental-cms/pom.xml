@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>online-check-in-service</artifactId>
+    <artifactId>car-rental-cms</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
