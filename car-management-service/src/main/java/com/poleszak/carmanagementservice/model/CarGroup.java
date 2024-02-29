@@ -2,6 +2,7 @@ package com.poleszak.carmanagementservice.model;
 
 import com.poleszak.carmanagementservice.model.enumerated.CarGroupVisibilityStatus;
 import com.poleszak.carmanagementservice.model.enumerated.FuelType;
+import com.poleszak.carmanagementservice.model.enumerated.GearboxType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -40,6 +41,9 @@ public class CarGroup {
 
     @Enumerated(STRING)
     private FuelType fuelType;
+
+    @Enumerated(STRING)
+    private GearboxType gearboxType;
 
     @Enumerated(STRING)
     private CarGroupVisibilityStatus visibilityStatus;

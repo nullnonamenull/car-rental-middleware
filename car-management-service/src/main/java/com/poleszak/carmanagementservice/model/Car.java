@@ -2,7 +2,6 @@ package com.poleszak.carmanagementservice.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.lang.NonNull;
 
 @Getter
 @Setter
@@ -17,7 +16,6 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NonNull
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
