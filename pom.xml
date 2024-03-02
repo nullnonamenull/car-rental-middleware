@@ -19,7 +19,7 @@
         <module>online-checkin-service</module>
         <module>clients</module>
         <module>api-gateway</module>
-        <module>price-payment-service</module>
+        <module>payment-service</module>
         <module>customer-document-service</module>
         <module>location-service</module>
         <module>common-library</module>
