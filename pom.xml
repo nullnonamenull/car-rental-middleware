@@ -16,7 +16,6 @@
         <module>car-management-service</module>
         <module>offer-service</module>
         <module>reservation-service</module>
-        <module>online-checkin-service</module>
         <module>clients</module>
         <module>api-gateway</module>
         <module>payment-service</module>
@@ -26,6 +25,7 @@
         <module>auth-service</module>
         <module>car-rental-cms</module>
         <module>car-rental-wpe</module>
+        <module>online-checkin-service</module>
     </modules>
 
     <properties>
